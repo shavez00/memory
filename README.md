@@ -1,38 +1,41 @@
-/*
- * Create a list that holds all of your cards
- */
+# Udacity FEND Memory Game
 
+This is my Udacity Nano-degree project create a memory game using Javascript and CSS.
 
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+## Getting Started
 
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+Step 1.  Git clone the repository</br>
+Step 2.  If you don't have python installed, [install python](https://www.python.org/downloads/).</br>
+Step 3.  Verify your python installation by running the command "python -V" from your command line.  You should get a response with your version of Python, if not, doublecheck step 2.</br>
+Step 4.  Navigate to the root directory of where you cloned the repository.</br>
+Step 5.  Run the python command "python -m SimpleHTTPServer 8000" to start HTTP Server.</br>
+Step 6.  Launch web browser and nagivate to "http://localhost:8000"</br>
+Step 7.  Enjoy!</br>
 
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
+## Playing the memory game
 
-    return array;
-}
+This is the classic game of memory.
 
+Click any card and you will see what that card is.
 
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+Match any two cards and those two cards will stay face up.
+
+If the two cards do not match then they will turn face down and you can try two more cards.
+
+The object of the game is to find each of the cards match in as few moves as possible.
+
+The more moves it takes you, the more stars you will lose.
+
+Try and find all of the matches as fast as possible.  Your time will be displayed at the end of the game.
+
+Click the cancel  button to remove the summary screen. Click the replay button to re-shuffle the cards and start over.
+
+Start over any time by clicking the replay icon at the top right hand corner of the game.
+
+### Prerequisites
+
+A Javascript compatible web browser and a web server of your choice.
+
+## Authors
+
+* **Mark Shavers** - *Initial work* - [shavez00](https://github.com/shavez00)

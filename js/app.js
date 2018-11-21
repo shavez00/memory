@@ -175,3 +175,7 @@ document.querySelector('.modal_replay').addEventListener('click', () => {
 document.querySelector('.restart').addEventListener('click', () => {
     window.location.reload();
 });
+
+document.querySelector('.modal_close').addEventListener('click', () => {
+    toggleModal();
+});
