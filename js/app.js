@@ -8,6 +8,7 @@ let clockOff = false;
 let time = 0;
 let clockID;
 let numOfMatches = 0;
+let starCount = 3;
 
 function addMove() {
     moves++;
@@ -76,7 +77,11 @@ deck.addEventListener('click', event => {
             console.log(numOfMatches);
         }
     }
-    if (numOfMatches === 7) clearInterval(clockId);
+    if (numOfMatches === 7) {
+        clearInterval(clockId);
+        toggleModal();
+        writeModalStats();
+    }
 });
 
 function toggleCard(card) {
@@ -114,6 +119,7 @@ function hideStar() {
     for (star of starList) {
         if (star.style.display != 'none') {
             star.style.display = 'none';
+            starCount = starCount - 1;
             break;
         }
     }
@@ -137,3 +143,35 @@ function displayTime() {
         clock.innerHTML = minutes+ ':' + seconds;
     }
 };
+
+function toggleModal() {
+    const modal = document.querySelector('.modal_background');
+    modal.classList.toggle('hide');
+};
+
+function writeModalStats() {
+    const timeStat = document.querySelector('.modal_time');
+    const clockTime = document.querySelector('.clock').innerHTML;
+    
+    const starsStat = document.querySelector('.modal_stars');
+    /*const stars = document.querySelector('.stars').childElementCount;*/
+    
+    const movesStat = document.querySelector('.modal_moves');
+    const moves = document.querySelector('.moves').innerHTML;
+    
+    timeStat.innerHTML = 'Time = ' + clockTime;
+    starsStat.innerHTML = 'Stars = ' + starCount;
+    movesStat.innerHTML = 'Moves = ' + moves;
+};
+
+document.querySelector('.modal_cancel').addEventListener('click', () => {
+    toggleModal();
+});
+
+document.querySelector('.modal_replay').addEventListener('click', () => {
+    window.location.reload();
+});
+
+document.querySelector('.restart').addEventListener('click', () => {
+    window.location.reload();
+});
