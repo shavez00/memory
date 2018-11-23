@@ -61,23 +61,28 @@ function shuffle(array) {
  */
 deck.addEventListener('click', event => {
     const clickTarget = event.target;
-    if (clickTarget.classList.contains('card') && !clickTarget.classList.contains('match') && toggledCards.length < 2 && !toggledCards.includes(clickTarget)) {
+    if (clickTarget.classList.contains('card') && 
+            !clickTarget.classList.contains('match') && 
+            toggledCards.length < 2 && 
+            !toggledCards.includes(clickTarget)) {
         if (!clockOff && time === 0) {
             startClock();
             clockOff = false;
         }
     }
-    if (clickTarget.classList.contains('card') && !clickTarget.classList.contains('match') && toggledCards.length < 2 && !toggledCards.includes(clickTarget)) {
+    if (clickTarget.classList.contains('card') && 
+            !clickTarget.classList.contains('match') && 
+            toggledCards.length < 2 && 
+            !toggledCards.includes(clickTarget)) {
         toggleCard(clickTarget);
         addToggleCard(clickTarget);
         if (toggledCards.length === 2) {
             checkForMatch(clickTarget);
             addMove();
             checkScore();
-            console.log(numOfMatches);
         }
     }
-    if (numOfMatches === 7) {
+    if (numOfMatches === 8) {
         clearInterval(clockId);
         toggleModal();
         writeModalStats();
